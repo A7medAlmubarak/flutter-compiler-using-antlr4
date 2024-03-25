@@ -1,0 +1,40 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class CounterController extends GetxController {
+  var count = 0.obs;
+
+  void increment() {
+    count = count + 1 ;
+  }
+}
+
+class CounterScreen extends StatelessWidget {
+  final CounterController counterController = Get.put(CounterController());
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Counter"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Obx(() => Text(
+                  "Count: ${counterController.count.value}",
+                )),
+            SizedBox(height: 16.0),
+            ElevatedButton(
+              onPressed: () {
+                counterController.increment();
+              },
+              child: Text("Increment"),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

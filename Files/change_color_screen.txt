@@ -1,0 +1,63 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'change_color_bloc.dart';
+
+class ChangeColorScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Change Color Screen")),
+      body: BlocProvider(
+        create: (_) => ChangeColorBloc(),
+        child: BoxView(),
+      ),
+    );
+  }
+}
+
+class BoxView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final ChangeColorBloc changeColorBloc =
+        BlocProvider.of<ChangeColorBloc>(context);
+
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          BlocBuilder<ChangeColorBloc, BoxColor>(
+            builder: (context, state) {
+              return Container(
+                width: 200,
+                height: 200,
+                color: state == BoxColor.red ? Colors.red : Colors.blue,
+              );
+            },
+          ),
+          SizedBox(height: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  changeColorBloc.add(BoxColor.red);
+                },
+                style: ElevatedButton.styleFrom(primary: Colors.red),
+                child: Text("Red"),
+              ),
+              SizedBox(width: 16),
+              ElevatedButton(
+                onPressed: () {
+                  changeColorBloc.add(BoxColor.blue);
+                },
+                style: ElevatedButton.styleFrom(primary: Colors.blue),
+                child: Text("Blue"),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}

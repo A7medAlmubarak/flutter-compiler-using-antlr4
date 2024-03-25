@@ -1,0 +1,12 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+enum BoxColor { red, blue }
+
+class ChangeColorBloc extends Bloc<BoxColor, BoxColor> {
+  ChangeColorBloc() : super(BoxColor.red);
+
+  @override
+  Stream<BoxColor> mapEventToState(BoxColor event) async* {
+    yield event;
+  }
+}

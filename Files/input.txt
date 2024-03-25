@@ -1,0 +1,27 @@
+import 'package:flutter/material.dart';
+import 'package:pharma_project/config/user_info.dart';
+import '../config/constant.dart';
+
+class AllMedsList extends StatelessWidget {
+
+ @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+    
+    onTap: onTap,
+      child: Container(
+        children: Column(
+          children: [
+            text("fgh"),
+            text("fgh")
+
+
+          ]
+        )
+      )
+      
+      
+      //
+    );
+    }  
+    }

@@ -1,0 +1,73 @@
+import 'package:com/home.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp( MyApp());
+}
+
+class MyApp extends StatelessWidget {
+   @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+
+      home: Test2(),
+    );
+  }
+}
+class Test2 extends StatefulWidget {
+  @override
+  _Test2State createState() => _Test2State();
+}
+
+class _Test2State extends State<Test2> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body:ListView(
+
+                 padding: EdgeInsets.all(10),
+
+
+        children: [
+       MovieDesc("Shutter Iland", 9.0, "lost iland and death"),
+       MovieDesc("Shutter Iland2", 5.0, "lost iland andt death"),
+       MovieDesc("Shutter Iland3", 6.0, "lost iland anddhgh death"),
+       MovieDesc("Shutter Iland4", 2.0, "lost iland and dedhhtath"),
+       MovieDesc("Shutter Iland5", 8.0, "lost iland and deadgth"),
+       MovieDesc("Shutter Ilan6", 9.0, "lost iland and deatdh"),
+       MovieDesc("Shutter Iland7", 9.0, "lost iland and dehdgdath"),
+       MovieDesc("Shutter Iland8", 9.0, "lost iland and deadhghdt6th"),
+         ]
+
+
+
+         ),
+
+
+    );
+  }
+}
+
+
+class MovieDesc extends StatelessWidget {
+  String moviename;
+  double rate;
+  String description;
+  MovieDesc(this.moviename,this.rate,this.description);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 150,
+      height: 150,
+      margin: EdgeInsets.all(5),
+      color: Colors.black12,
+      child: Column(
+        children: [
+          Text(moviename),
+          Text(description),
+          Text(rate),
+        ],
+      ),
+    );
+  }
+}

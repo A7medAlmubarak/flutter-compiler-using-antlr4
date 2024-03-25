@@ -1,0 +1,11 @@
+void main()
+{
+
+Column(
+        children: [
+          Text(moviename),
+          Text(description),
+          Text(rate),
+        ],
+      ),
+}

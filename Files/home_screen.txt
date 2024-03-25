@@ -1,0 +1,52 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'change_color_bloc.dart';
+import 'change_color_screen.dart';
+import 'counter_screen.dart';
+
+class HomeScreen extends StatelessWidget {
+  final String email;
+
+  HomeScreen({required this.email});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Home"),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Welcome, $email"),
+            SizedBox(height: 16.0),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ChangeColorScreen(),
+                  ),
+                );
+              },
+              child: Text("Change Color"),
+            ),
+            SizedBox(height: 16.0),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CounterScreen(),
+                  ),
+                );
+              },
+              child: Text("Counter"),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
